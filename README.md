@@ -48,4 +48,12 @@ The analysis of the election shows that:
 
 ### Statement to the election commission
 
-Explore how this script can be used for any election with 2 examples for modifications
+This script will function similarly to the *election_results.csv* use case so long as the new data contains rows that represent unique ballots and include *County* and *Candidate* columns in column index 1 and 2 respectively.
+
+#### Modifications to the Script
+
+The script can be modified in a few different ways to ensure the script can be used for any election data. Two examples are given below:
+
+1. Data Cleaning: A high-profile critique on ballot counting is the possibility for tallying the same ballot multiple times, leading to inflated vote counts that may even impact the election's outcome. To ensure this doesn't happen with future election data, duplicate rows can be removed. A list of the `unique_ballots` can be initialized with `unique_ballots = []`. Then, the conditional `if row[0] not in unique_ballots` can be placed within the `for row in reader:` loop to run an append method, `unique_ballots.append(row[0])`, that ensures a given *Ballot ID* is not counted again. Finally, the rest of the code to process each ballot is run within the conditional.
+
+2. Input File with Additional Columns: New election data may not always be formatted in exactly the same way. If the *County* and *Candidate* columns are not provided in column index 1 and 2 respectively, the current code might erroneously extract another column's data in place of the actual *County* or *Candidate* columns. To add support for new datasets like these, the headers list can be queried to find which column index includes the proper data. By looping through the enumerated headers with `for i, header in enumerate(headers):` and if either of the `if header == "County"` or `if header == "County"` conditions are satisfied, the indexes for each column can be stored with `county_index = i` or `candidate_index = i`. Finally, the indexes can be used when the *County* or *Candidate* columns are referenced later on in the code.
