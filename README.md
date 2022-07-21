@@ -41,6 +41,7 @@ The analysis of the election shows that:
     - Charles Casper Stockham reveived *23.0%* of the vote and *85,213* number of votes.
     - Diana DeGette reveived *73.8%* of the vote and *272,892* number of votes.
     - Raymon Anthony Doane reveived *3.1%* of the vote and *11,606* number of votes.
+- The winner was Diana DeGette with *73.8%* of the vote and *272,892* number of votes.
 
 !['PyPoll Results'](Resources/pypoll_results.png)
 
